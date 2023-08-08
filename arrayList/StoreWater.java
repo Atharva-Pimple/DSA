@@ -16,7 +16,7 @@ public class StoreWater{
 
         return maxWater;
     }
-
+    // Two pointer approach
     public static int storeWater(ArrayList<Integer> height){
         int maxWater=Integer.MIN_VALUE;
         int lp=0, rp=height.size()-1;
