@@ -95,6 +95,22 @@ public class DoubleLL{
         System.out.println("null");
     }
 
+    public void reverse(){
+        Node prev=null;
+        Node curr=head;
+        Node next;
+
+        while(curr != null){
+            next=curr.next;
+            curr.prev=next;
+            curr.next=prev;
+
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+
     public static void main(String args[]){
         DoubleLL dll= new DoubleLL();
 
@@ -105,16 +121,19 @@ public class DoubleLL{
         dll.addLast(5);
 
         dll.print();
-        System.out.println(dll.size);
+        // System.out.println(dll.size);
 
         // System.out.println(dll.removeFirst());
         // dll.print();
         // System.out.println(dll.size);
 
-        System.out.println(dll.removeLast());
-        System.out.println(dll.removeLast());
+        // System.out.println(dll.removeLast());
+        // System.out.println(dll.removeLast());
+        // dll.print();
+        // System.out.println(dll.size);
+
+        dll.reverse();
         dll.print();
-        System.out.println(dll.size);
 
     }
 }
