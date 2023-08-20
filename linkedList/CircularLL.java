@@ -61,6 +61,34 @@ public class CircularLL{
         return last;
     }
 
+    static Node deleteNode(Node last, int key) {
+        if (last == null){
+            return null;
+        }
+
+        if (last.data == key && last.next == last) {
+            last = null;
+            return last;
+        }
+        Node temp = last;
+        Node d = new Node(-1);
+        if (last.data == key) {
+            while (temp.next != last) {
+            temp = temp.next;
+            }
+            temp.next = last.next;
+            last = temp.next;
+        }
+        while (temp.next != last && temp.next.data != key) {
+            temp = temp.next;
+        }
+        if (temp.next.data == key) {
+            d = temp.next;
+            temp.next = d.next;
+        }
+        return last;
+    }
+
     static void traverse(Node last){
         if(last==null){
             System.out.print("LL is Empty");
@@ -79,6 +107,9 @@ public class CircularLL{
         last=addEnd(last,8);
         last=addFront(last,2);
         last=addAfter(last,10,2);
+        traverse(last);
+        last=deleteNode(last,10);
+        System.out.println();
         traverse(last);
     }
 }
