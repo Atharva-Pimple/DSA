@@ -1,33 +1,16 @@
 import java.util.ArrayList;
 
-public class StackLL{
-    static class Node{
-        int data;
-        Node next;
-
-        public Node(int data){
-            this.data=data;
-            this.next=null;
-        }
-    }
+public class StackAL{
     static class Stack{
-
-        static Node head=null;
+        static ArrayList<Integer> list=new ArrayList<>();
 
         public static boolean isEmpty(){
-            return head==null;
+            return list.size()==0;
         }
 
         // push
         public static void push(int data){
-            Node newNode=new Node(data);
-            if(isEmpty()){
-                head=newNode;
-                return;
-            }
-
-            newNode.next=head;
-            head=newNode;
+            list.add(data);
         }
 
         // pop
@@ -35,9 +18,9 @@ public class StackLL{
             if(isEmpty()){
                 return -1;
             }
-            int top=head.data;
-            head=head.next;
-            return top;
+            int last=list.get(list.size()-1);
+            list.remove(list.size()-1);
+            return last;
         }
 
         // peek
@@ -45,7 +28,7 @@ public class StackLL{
             if(isEmpty()){
                 return -1;
             }
-            return head.data;
+            return list.get(list.size()-1);
         }
     }
 
