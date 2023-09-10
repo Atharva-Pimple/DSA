@@ -27,7 +27,7 @@ public class ActivitySelection{
             if(lastEnd<=activities[i][1]){
                 maxAct++;
                 lastEnd=activities[i][2];
-                ans.add(activities[i][0]);
+                ans.add(activities[i][0]); 
             }
         }
 
