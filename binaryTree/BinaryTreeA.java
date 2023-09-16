@@ -37,6 +37,15 @@ public class BinaryTreeA{
             preOrder(root.right);
         }
 
+        public static void inorder(Node root){
+            if(root==null){
+                return;
+            }
+            inorder(root.left);
+            System.out.print(root.data+" ");
+            inorder(root.right);
+        }
+
         public static void postOrder(Node root){
             if(root==null){
                 return;
@@ -86,7 +95,8 @@ public class BinaryTreeA{
 
         // bt.preOrder(root);
         // bt.postOrder(root);
-        bt.levelOrder(root);
+        bt.inorder(root);
+        // bt.levelOrder(root);
 
     }
 }
