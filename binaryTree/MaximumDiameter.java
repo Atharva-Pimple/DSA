@@ -11,6 +11,16 @@ public class MaximumDiameter{
         }
     }
 
+    static class Info{
+        int ht;
+        int diam;
+
+        public Info(int ht,int diam){
+            this.ht=ht;
+            this.diam=diam;
+        }
+    }
+
     static class BinaryTree{
         static int idx=-1;
         public static Node buildTree(int nodes[]){
@@ -50,14 +60,30 @@ public class MaximumDiameter{
             int selfd=lh+rh+1;
             return Math.max(selfd,Math.max(ld,rd));
         }
+
+        public static Info diameter2(Node root){
+            if(root==null){
+                return new Info(0,0);
+            }
+
+            Info leftInfo=diameter2(root.left);
+            Info rightInfo=diameter2(root.right);
+
+            int diam=Math.max(Math.max(leftInfo.diam,rightInfo.diam),leftInfo.ht+rightInfo.ht+1);
+            int ht=Math.max(leftInfo.ht,rightInfo.ht)+1;
+
+            return new Info(ht,diam);
+        }
     }
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,6,-1,7,-1,-1,3,-1,-1};
         // int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree=new BinaryTree();
         Node root=tree.buildTree(nodes);
-        
-        System.out.print(tree.diameter(root));
+         
+        // System.out.print(tree.diameter(root));
+        System.out.println(tree.diameter2(root).diam);
+        System.out.print(tree.diameter2(root).ht);
     }
 }
 
