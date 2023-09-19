@@ -67,10 +67,31 @@ public class LowestCommonAncestor{
 
         return path1.get(i-1);
     }
+
+    // Approach 2 for better space complexity
+    public static Node lca2(Node root,int n,int m){
+        if( root==null || root.data==n || root.data==m ){
+            return root;
+        }
+
+        Node leftLca=lca2(root.left,n,m);
+        Node rightLca=lca2(root.right,n,m);
+
+        if(leftLca==null){
+            return rightLca;
+        }
+
+        if(rightLca==null){
+            return leftLca;
+        }
+
+        return root;
+    }
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
         Node root=buildTree(nodes);
         int n=6,m=7;
-        System.out.print(lca(root,n,m).data);
+        // System.out.print(lca(root,n,m).data);
+        System.out.print(lca2(root,n,m).data);
     }
 }
