@@ -87,11 +87,42 @@ public class LowestCommonAncestor{
 
         return root;
     }
+
+    public static int lcaDist(Node root,int n){
+        if(root==null){
+            return -1;
+        }
+        if(root.data==n){
+            return 0;
+        }
+
+        int left=lcaDist(root.left,n);
+        int right=lcaDist(root.right,n);
+
+        if(left==-1 && right==-1){
+            return -1;
+        }else if(left==-1){
+            return right+1;
+        }else { 
+            return left+1;
+        }
+    }
+
+    // minimum distance between two nodes
+    public static int minDist(Node root,int n,int m){
+        Node lca=lca2(root,n,m);
+        int dist1=lcaDist(lca,n);
+        int dist2=lcaDist(lca,m);
+
+        return dist1+dist2;
+    }
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
         Node root=buildTree(nodes);
         int n=6,m=7;
         // System.out.print(lca(root,n,m).data);
-        System.out.print(lca2(root,n,m).data);
+        // System.out.print(lca2(root,n,m).data);
+
+        System.out.print(minDist(root,n,m));
     }
 }
