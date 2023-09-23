@@ -46,7 +46,7 @@ public class ValidateBST{
     public static void main(String args[]){
         int[] nodes={8,5,3,1,4,6,10,11,14};
         // int nodes[]={1,1,1};
-        Node root=null;
+        Node root=null; 
 
         for(int i=0;i<nodes.length;i++){
             root=insert(root,nodes[i]);
