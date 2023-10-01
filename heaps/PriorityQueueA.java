@@ -10,7 +10,7 @@ public class PriorityQueueA{
         pq.add(7);
         pq.add(5);
 
-        while(!pq.isEmpty()){
+        while(!pq.isEmpty()){ 
             System.out.print(pq.peek()+" ");
             pq.remove();
         }
