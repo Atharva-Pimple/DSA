@@ -63,7 +63,7 @@ public class WordBreak{
             insert(words[i]);
         }
 
-        String key="ilikesamsung";
+        String key="ilikesamsung"; 
 
         System.out.print(wordBreak(key));        
     }

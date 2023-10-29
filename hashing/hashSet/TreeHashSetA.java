@@ -18,7 +18,7 @@ public class TreeHashSetA{
         citiesT.add("Bengaluru");
         citiesT.add("Chennai");
         citiesT.add("Kolkata");
-        // Sorted 
+        // Sorted  
         System.out.println(citiesT);
     }
 }
