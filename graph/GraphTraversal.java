@@ -63,13 +63,26 @@ public class GraphTraversal{
         }
     }
 
+    public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[]){
+        System.out.print(curr+" ");
+        vis[curr]=true;
+
+        for(int i=0;i<graph[curr].size();i++){
+            Edge e=graph[curr].get(i);
+            if(!vis[e.dest]){
+                dfs(graph,e.dest,vis);
+            }
+        }
+    }
+
     public static void main(String args[]){
         int v=7;
         ArrayList<Edge>[] graph=new ArrayList[v];
 
         createGraph(graph);
 
-        bfs(graph);
+        // bfs(graph);
+        dfs(graph,0,new boolean[v]);
 
     }
 }
