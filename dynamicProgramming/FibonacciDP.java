@@ -1,5 +1,5 @@
 public class FibonacciDP{
-        // by recursion O(2^n)
+    // by recursion O(2^n)
     public static int fibonacci(int n){
         if(n==0 || n==1){
             return n;
@@ -18,7 +18,7 @@ public class FibonacciDP{
             return f[n];
         }
 
-        f[n]=fibonacci(n-1)+fibonacci(n-2);
+        f[n]=fibonacciMemo(n-1,f)+fibonacciMemo(n-2,f);
         return f[n];
     }
 
