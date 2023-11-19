@@ -16,6 +16,7 @@ public class CountingBST{
     }
 
     public static void main(String args[]){
+        // counting possible bst for n nodes
         int n=4;
         System.out.print(countBST(n));
     }
